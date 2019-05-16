@@ -2,25 +2,28 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { listBrand, modelCar } from '../../store/actions'
+import { detailsCar } from '../../store/actions'
 
-class ListBrand extends Component {
+// import { Container } from './styles';
+
+class ListYears extends Component {
   state = {
     redirect: false
   }
 
-  componentDidMount() {
-    this.props.listBrand()
-  }
-
   handleSubmit = event => {
     event.preventDefault()
-    this.props.modelCar(this.refs.selectBrand.value)
+    this.props.detailsCar(
+      this.props.brand,
+      this.props.model,
+      this.refs.selectYear.value
+    )
+
     this.setState({ redirect: true })
   }
 
   render() {
-    if (this.state.redirect) return <Redirect to='/modelo' />
+    if (this.state.redirect) return <Redirect to='/detalhes' />
 
     const itemsOptions = () => {
       const options = this.props.list || []
@@ -33,8 +36,8 @@ class ListBrand extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <select ref='selectBrand'>
-          <option>Selecione uma Marca</option>
+        <select ref='selectYear'>
+          <option>Selecione ano do modelo</option>
           {itemsOptions()}
         </select>
         <button type='submit'>Selecionar</button>
@@ -44,12 +47,14 @@ class ListBrand extends Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.fipe.listBrand
+  list: state.fipe.listYears,
+  brand: state.fipe.brand,
+  model: state.fipe.model
 })
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ listBrand, modelCar }, dispatch)
+  bindActionCreators({ detailsCar }, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListBrand)
+)(ListYears)

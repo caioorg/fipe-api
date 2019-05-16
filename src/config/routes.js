@@ -1,12 +1,30 @@
-import { Home } from "../pages";
+import { Home, ModelCar, YearCar, DetailsCar } from '../pages'
 
 const routes = [
   {
     exact: true,
-    path: "/",
+    path: '/',
     component: Home,
-    key: "home"
+    key: 'home'
+  },
+  {
+    exact: false,
+    path: '/modelo',
+    component: ModelCar,
+    key: 'modelo'
+  },
+  {
+    exact: false,
+    path: '/ano',
+    component: YearCar,
+    key: 'ano'
+  },
+  {
+    exact: false,
+    path: '/detalhes',
+    component: DetailsCar,
+    key: 'detalhes'
   }
-];
+]
 
-export default routes;
+export default routes
