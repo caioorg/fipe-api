@@ -1,0 +1,90 @@
+.form-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px; /* demo only */
+}
+
+.form-select select {
+  background-color: #7f8c8d;
+  color: #fff;
+  border: 0;
+  min-height: 50px;
+  margin: 0;
+  border-radius: 3px;
+  -webkit-appearance: button;
+  min-width: 300px;
+  padding: 0 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-select select option {
+  text-transform: uppercase;
+  background: #b0b5b5;
+  color: #2a2a2b;
+}
+
+.form-select::before,
+.form-select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.form-select::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: 1em;
+  line-height: 1;
+  right: 0.5em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.form-select::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.form-select::before {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.form-select::after {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.form-button {
+  border: 0;
+  min-height: 50px;
+  padding: 0 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (min-width: 0) and (max-width: 767px) {
+  .form {
+    width: 100%;
+  }
+
+  .form-select {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .form-select select {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .form-button {
+    padding: 0;
+    width: 100%;
+  }
+}

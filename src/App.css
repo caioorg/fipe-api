@@ -1,0 +1,45 @@
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  background: #fbfbfb;
+  /* Chrome */
+  -webkit-font-smoothing: antialiased !important;
+}
+
+h1 {
+  display: block;
+}
+
+.go-back {
+  position: absolute;
+  top: 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}

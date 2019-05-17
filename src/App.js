@@ -10,6 +10,8 @@ import promise from "redux-promise";
 import multi from "redux-multi";
 import thunk from "redux-thunk";
 
+import "./App.css";
+
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
@@ -21,15 +23,17 @@ const store = applyMiddleware(thunk, multi, promise)(createStore)(
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Switch>
-            {routes.map(route => (
-              <Route {...route} />
-            ))}
-          </Switch>
-        </BrowserRouter>
-      </Provider>
+      <div className="container">
+        <Provider store={store}>
+          <BrowserRouter>
+            <Switch>
+              {routes.map(route => (
+                <Route {...route} />
+              ))}
+            </Switch>
+          </BrowserRouter>
+        </Provider>
+      </div>
     );
   }
 }
